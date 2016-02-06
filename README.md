@@ -1,8 +1,6 @@
 Description
 -----------
-*angular-onerepmax* is a simple angularjs service that encapsulates the *onerepmax-js* library. You can read about *onerepmax-js* here: http://svespie.github.io/onerepmax-js/. *onerepmax-js* creates a global variable that can be used to perform these calculations, but it does have its problems. The first one, is of course, the global variable. The second one is that it makes testing any JavaScript that uses *onerepmax* more challenging than it ought to be.
-
-With angular, there is a high priority placed on unit testing and testability. This is accomplished through dependency injection. Where necessary, the components such as *onerepmax* that a unit of code depends on can be injected pretty easily by angular. This aids unit testing through the ability to mock these dependencies. It is for this purpose that this particular project was created. It moves the *onerepmax* library out of the global scope and into an injectable angularjs service.
+*angular-onerepmax* is a simple angularjs service that encapsulates the *onerepmax-js* library. You can read about *onerepmax-js* here: http://svespie.github.io/onerepmax-js/. This project aims to implement a wrapper around the *onerepmax* library to keep the global context clear of clutter and allow this functionality to be injected where it is needed rather than always available.
 
 Usage
 -----
