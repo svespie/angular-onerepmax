@@ -31,10 +31,56 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
-<a id="angular-onerepmax" class="anchor" href="#angular-onerepmax" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>angular-onerepmax</h1>
+        <h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
 
-<p>This is an angularjs based service that can be injected into an angular application allowing its users to perform the calculations available in the onerepmax-js library. The benefit is that users will not need to depend on global objects to use the one rep max library.</p>
+<p><em>angular-onerepmax</em> is a simple angularjs service that encapsulates the <em>onerepmax-js</em> library. You can read about <em>onerepmax-js</em> here: <a href="http://svespie.github.io/onerepmax-js/">http://svespie.github.io/onerepmax-js/</a>. This project aims to implement a wrapper around the <em>onerepmax</em> library to keep the global context clear of clutter and allow this functionality to be injected where it is needed rather than always available.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To use <em>angular-onerepmax</em>, use your favorite means of including the source code into your project or webpage. This file should be loaded after angularjs itself is loaded. The script registers the service under the name <strong>angular.onerepmax</strong>, which will need to be included as a dependency in your application. Once these two things are done, the service can be injected into your controller(s) and/or service(s) how you see fit using the identifier <strong>onerepmax</strong>.</p>
+
+<p>Once the service has been provided, it can be used like the standard <em>onerepmax-js</em> library. For details on how to use the library itself, please see its GitHub project page at <a href="http://svespie.github.io/onerepmax-js/">http://svespie.github.io/onerepmax-js/</a>.</p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>Included in this project is a very simple demonstration of the steps required to inject the service and use it. This demo can be found under /demo. Since it is a stripped down angular application that does almost nothing, all of the JavaScript defining the application simply resides in a script tag in /demo/index.html.</p>
+
+<p>The first thing to note is that at the bottom of the body tag, we make reference to first angular and then the <em>angular-onerepmax service</em>.</p>
+
+<pre><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"&gt;&lt;/script&gt;
+&lt;script src="../src/angular-onerepmax.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>After including these JavaScript files, a third script tag provides the inline JavaScript that creates the demo application and a simple controller.</p>
+
+<pre><code>(function () {
+    'use strict';
+
+    angular.module('app', ['angular.onerepmax']).controller('MainCtrl', ['onerepmax', function (onerepmax) {
+        var self = this;
+
+        self.weight = 135;
+        self.reps = 10;
+        self.units = 'lbs.';
+        self.max = onerepmax.calculate(self.weight, self.reps, 'average');
+    }]);
+}());
+</code></pre>
+
+<p>Some knowledge of angular is assumed, so hopefully this doesn't look very foreign. Essentially, we wrap the creation of the angular application within an IIFE. We create an application called app and identify <em>angular.onerepmax</em> as a dependency. We then create a controller and identify that this controller is looking for <em>onerepmax</em> to be injected into it. The service is then used to populate some model data, which can then be seen when the application is run in a browser.</p>
+
+<h2>
+<a id="notes" class="anchor" href="#notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notes</h2>
+
+<p>It should be noted that both this project and the <em>onerepmax-js</em> project are both in their infancy. There currently are no numbered versions of either. This is important to understand because in creating this angular service, the code from <em>onerepmax-js</em> was simply copied and pasted into some code the creates an angular service. This means that there potentially could be a mis-match between these two projects and there wouldn't be an easy way to make that determination. My best advice at the moment is to let the tests be your guide.</p>
+
+<h2>
+<a id="unit-tests" class="anchor" href="#unit-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unit Tests</h2>
+
+<p>Unit tests are not yet available but they are in the works. Stay tuned!</p>
       </section>
     </div>
 
