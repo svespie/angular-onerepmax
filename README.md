@@ -4,7 +4,7 @@ Description
 
 Usage
 -----
-To use *angular-onerepmax*, use your favorite means of including the source code into your project or webpage. This file should be loaded after angularjs itself is loaded. The script registers the service under the name **angular.onerepmax**, which will need to be included as a dependency in your application. Once these two things are done, the service can be injected into your controller(s) and/or service(s) how you see fit using the identifier **onerepamx**.
+To use *angular-onerepmax*, use your favorite means of including the source code into your project or webpage. This file should be loaded after angularjs itself is loaded. The script registers the service under the name **angular.onerepmax**, which will need to be included as a dependency in your application. Once these two things are done, the service can be injected into your controller(s) and/or service(s) how you see fit using the identifier **onerepmax**.
 
 Once the service has been provided, it can be used like the standard *onerepmax-js* library. For details on how to use the library itself, please see its GitHub project page at http://svespie.github.io/onerepmax-js/.
 
