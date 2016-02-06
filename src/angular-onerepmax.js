@@ -2,7 +2,7 @@
     'use strict';
 
     //noinspection JSUnresolvedVariable,JSUnresolvedFunction
-    angular.module('onerepmax', []).service('$1rm' [function () {
+    angular.module('angular.onerepmax', []).service('onerepmax', [function () {
         this.calculate = function (weight, reps, formula) {
             return calculate(weight, reps, formula);
         }
