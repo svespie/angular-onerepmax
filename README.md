@@ -2,6 +2,8 @@ Description
 -----------
 *angular-onerepmax* is a simple angularjs service that encapsulates the *onerepmax-js* library. You can read about *onerepmax-js* here: http://svespie.github.io/onerepmax-js/. This project aims to implement a wrapper around the *onerepmax* library to keep the global context clear of clutter and allow this functionality to be injected where it is needed rather than always available.
 
+This library is being developed under angular 1.5.0 (the most stable 1.x version at the time of this writing). No consideration has been given for angular version 2.0. 
+
 Usage
 -----
 To use *angular-onerepmax*, use your favorite means of including the source code into your project or webpage. This file should be loaded after angularjs itself is loaded. The script registers the service under the name **angular.onerepmax**, which will need to be included as a dependency in your application. Once these two things are done, the service can be injected into your controller(s) and/or service(s) how you see fit using the identifier **onerepmax**.
