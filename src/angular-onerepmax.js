@@ -2,9 +2,11 @@
     'use strict';
 
     //noinspection JSUnresolvedVariable,JSUnresolvedFunction
-    angular.module('angular.onerepmax', []).service('onerepmax', [function () {
-        this.calculate = function (weight, reps, formula) {
-            return calculate(weight, reps, formula);
+    angular.module('angular.onerepmax', []).factory('onerepmax', [function () {
+        return {
+            calculate: function (weight, reps, formula) {
+                return calculate(weight, reps, formula);
+            }
         }
     }]);
 
